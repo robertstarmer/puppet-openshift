@@ -1,4 +1,27 @@
-puppet-openshift
-================
+Install Multi-Node OpenShift
+============================
 
-OpenShift PaaS Puppet Installer
+This work is based on Krishna Raman's RedHat post:
+https://openshift.redhat.com/community/wiki/build-multi-node-paas-from-scratch
+http://www.krishnaraman.net/multi-node-openshift-origin-from-scratch/
+
+Usage
+-----
+
+Add to your puppet master modules
+
+create a broker definition:
+
+node /broker/ {
+
+  class{openshift::broker:
+  }
+
+}
+
+node /openshfit-node/ {
+
+  class {openshift::node:
+  }
+
+}
