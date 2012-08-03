@@ -9,7 +9,7 @@ class openshift {
 
   exec { 'setenforce 0':
    cwd => '/tmp',
-   path=>['/bin','/sbin','/usr/sbin'],
+   path=>['/bin','/sbin','/usr/bin','/usr/sbin'],
    unless => 'getenforce | grep Permissive'
   }
 
@@ -22,7 +22,7 @@ class openshift {
 # Seems yum check-update will return non-zero if there are updates
   exec {'yum -y update':
     cwd => '/tmp',
-    path=>['/bin','/sbin','/usr/sbin'],
+    path=>['/bin','/sbin','/usr/bin','/usr/sbin'],
     unless => 'yum check-update'
   }
 
