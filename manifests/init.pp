@@ -8,10 +8,10 @@
 class openshift {
 
   exec { 'setenforce 0':
-    cwd => '/tmp'
-	  path=>['/bin','/sbin','/usr/sbin'],
-	  unless => 'getenforce | grep Permissive'
-	}
+   cwd => '/tmp',
+   path=>['/bin','/sbin','/usr/sbin'],
+   unless => 'getenforce | grep Permissive'
+  }
 
   user {'openshift':
     groups => 'wheel',
