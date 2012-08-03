@@ -2,7 +2,7 @@
 # Build RedHat OpenShift
 #
 class openshift::devnode (
-  broker_ip = '127.0.0.1'
+  $broker_ip = '127.0.0.1'
 ) {
 
   exec {'rake devnode':
@@ -13,6 +13,7 @@ class openshift::devnode (
   ->
   exec {"ss-setup-node --with-broker-ip ${broker_ip} --with-node-ip $::{hostname}":
     cwd => '/tmp',
-    path => ['/bin','/usr/bin'],
+    path => ['/bin','/usr/bin']
 #    unless => '', 
+  }
 }
