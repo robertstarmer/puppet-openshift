@@ -12,6 +12,6 @@ class openshift::broker {
   exec {'ss-setup-broker':
     cwd => '/tmp',
     path => ['/bin','/usr/bin'],
-    unless => 'test -f /etc/rndc.key',
+    unless => 'test -L /etc/systemd/system/multi-user.target.wants/stickshift-gears.service'
   }
 }
